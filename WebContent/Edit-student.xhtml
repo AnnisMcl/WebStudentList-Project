@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      
+  <f:metadata>
+	<f:viewAction action="#{studentManager.initForm}" />
+</f:metadata>    
+
+<link href="add-student-style.css" type="text/css" rel="stylesheet" />
+
+
+<h:body>
+	<h3>Modifications</h3>
+	
+	<h:form>
+	
+	    <h:outputLabel for="id" value="id :" />
+		<h:outputText id="id" value="#{studentManager.selectedStudent.id}"></h:outputText>
+	
+	<br/>
+	    <h:outputLabel for="nom" value="Nom :" />
+		<h:inputText id="nom" value="#{studentManager.selectedStudent.nom}" required="true" requiredMessage="Entrez le nom"
+                    validatorMessage="Le nom doit contenir au moins 2 caractères">
+                    <f:validateLength minimum="2" /></h:inputText>
+                    <h:message for = "nom" style = "color:red" /> 
+		 <br/>
+		<h:outputLabel for="prenom" value="Prenom :" />
+		<h:inputText id="prenom" value="#{studentManager.selectedStudent.prenom}"  required="true" requiredMessage="Entrez le prénom"
+                    validatorMessage="Le prénom doit contenir au moins 2 caractères">
+                    <f:validateLength minimum="2" /></h:inputText>
+                     <h:message for = "prenom" style = "color:red" />
+		<br/>
+		<h:outputLabel for="email" value="email :" />
+		<h:inputText id="email" a:type="email" value="#{studentManager.selectedStudent.email}"  required="true" requiredMessage="Entrez l'e-mail"
+                    validatorMessage="L'email doit être conforme">
+                    </h:inputText>
+                  
+
+                   
+		
+		<h:commandButton value="Modifier" action="#{studentManager.modifier}"></h:commandButton>
+	   <br/> <a href = "List-students.xhtml"  > Retour</a>
+	
+	</h:form>
+   
+</h:body>
+
+
+</html>

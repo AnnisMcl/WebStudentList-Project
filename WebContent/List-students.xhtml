@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      
+      
+<f:metadata>
+	<f:event type="preRenderView" listener="#{studentManager.getListeStudents()}"> </f:event>
+</f:metadata>
+
+
+<link href="D:\ESILV A4\style - Copy.css" type="text/css" rel="stylesheet" />
+ 
+
+
+<h:body>
+
+	
+	
+		<h2>Liste des étudiants </h2>
+    	
+    		<h:dataTable border ="1" value="#{studentManager.getListeStudents()}" var="sdt" >
+    			<h:column>
+    				
+    				<f:facet name="header">ID</f:facet>   				
+    				#{sdt.id}
+    				
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Nom</f:facet>
+    				#{sdt.nom} 
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Prenom</f:facet>
+    				#{sdt.prenom} 
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Email</f:facet>
+    				#{sdt.email}
+    			</h:column>
+    			
+   			<h:column headerText="Actions" style="text-align: center">  
+				<h:button value="Modifier" outcome="Edit-student" >
+							<f:param name="id" value="#{sdt.id}" />
+				</h:button>				
+			</h:column>	
+			   
+			 <h:column headerText="Actions" style="text-align: center">
+				<h:button value="Supprimer" outcome= "Delete-Student">
+							<f:param name="id" value="#{sdt.id}" />
+				</h:button>				
+			</h:column>			 
+						
+
+    		</h:dataTable>
+    		
+    		
+    		
+    		<h:button 
+    			value="Ajouter" outcome="Add-student" > 
+    		</h:button>
+    		
+
+</h:body>
+
+
+</html>

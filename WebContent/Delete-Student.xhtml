@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html">
+  <f:metadata>
+	<f:viewAction action="#{studentManager.initForm}" />
+</f:metadata>    
+
+<link href="add-student-style.css" type="text/css" rel="stylesheet" />
+
+<h:body>
+	<h3>Voulez-vous vraiment supprimer ? </h3>
+	
+	<h:form>
+	
+	    <h:outputLabel for="id" value="id :" />
+		<h:outputText id="id" value="#{studentManager.selectedStudent.id}"></h:outputText>
+	
+	    <h:outputLabel for="nom" value="Nom :" />
+		<h:outputText id="nom" value="#{studentManager.selectedStudent.nom}"></h:outputText>
+		 
+		<h:outputLabel for="prenom" value="Prenom :" />
+		<h:outputText id="prenom" value="#{studentManager.selectedStudent.prenom}"></h:outputText>
+		
+		<h:outputLabel for="email" value="Email :" />
+		<h:outputText id="email" value="#{studentManager.selectedStudent.email}"></h:outputText>
+		
+		<h:commandButton value="Supprimer" action="#{studentManager.supprimer}"></h:commandButton>		
+		 <br/> <a href = "List-students.xhtml"  > Retour</a>
+	    
+
+	</h:form>
+   
+</h:body>
+
+
+</html>
